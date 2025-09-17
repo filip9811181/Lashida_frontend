@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Lashiba } from '@/components/lashiba';
 import Cloud from './components/cloud';
+import Paasol from './components/paasol';
 
 export default function StakePage() {
   return (
@@ -14,8 +15,9 @@ export default function StakePage() {
           backgroundAttachment: "fixed",
         }
       }
-      className="relative min-h-screen flex flex-col overflow-x-hidden">
+      className="relative min-h-screen overflow-x-hidden">
       <Cloud />
+      <Paasol />
       <div className='flex flex-col items-center lg:hidden mt-[40px]'>
         <div className='w-[322px]'>
           <div className='relative w-[65px] h-[83px] ml-10 '>
@@ -30,22 +32,31 @@ export default function StakePage() {
         </div>
       </div>
 
-      <div className="mx-[62px] lg:mx-[146px] mt-[48px] lg:mt-[16px]">
-        <div className='flex lg:flex-row flex-col lg:items-end'>
+      <div className="mx-[62px] lg:mx-[146px] mt-[48px] lg:mt-[112px]">
+        <div className='flex lg:flex-row flex-col lg:items-end w-full items-center lg:items-none'>
           <Image
-            className='w-[444px] h-[125px] hidden lg:block'
+            className='w-[444px] h-[125px] hidden lg:block z-10'
             src='/images/stake/welcome_to_lashiba_desktop.png'
             alt='animated shiba'
             width={10}
             height={10}
           />
           <Image
-            className='w-[380px] h-[98px] lg:hidden'
+            className='w-[380px] h-[98px] lg:hidden z-10'
             src='/images/stake/welcome_to_lashiba_mobile.png'
             alt='animated shiba'
             width={10}
             height={10}
           />
+          <div 
+            className='text-center lg:text-left flex-1 ml-0 lg:ml-[32px] mb-0 lg:mb-4 text-[18px] lg:text-[2ppx] text-black mt-[48px] lg:mt-0'>
+            <p>
+              The distribution of $LaShiba token rewards will occur at a rate of 608.82 $LaShiba tokens per ETH block.
+            </p>
+            <p className='mt-[8px] lg:mt-0'>              
+              These rewards will be disbursed over 2 years and will be claimable once claim goes live.
+            </p>
+          </div>
         </div>
       </div>
     </div>
