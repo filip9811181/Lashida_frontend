@@ -18,14 +18,17 @@ import { ActiveBg } from './active-bg';
 import { ButtonBg } from './button-bg';
 import { HEADER_LINKS } from './constants';
 import { shortenAddress } from '@/utils';
+import { LanguageSelector } from '../components/language-selector';
 
 const sections = ['home', 'how-to-buy', 'whitepaper', 'audit', 'faq'];
+
 
 const Header = () => {
   const pathname = usePathname();
   const { address, isConnected } = useAccount();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [selectedLanguage, setSelectedLanguage] = useState('EN');
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -49,6 +52,7 @@ const Header = () => {
     handleScrollEvent();
     return () => window.removeEventListener('scroll', handleScrollEvent);
   }, []);
+
 
   const handleScroll = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -75,6 +79,16 @@ const Header = () => {
     } else {
       web3Modal.open();
     }
+  };
+
+  const handleBuyNow = () => {
+    // Todo. Add buy now logic.
+  }
+
+  const handleLanguageChange = (languageCode: string) => {
+    setSelectedLanguage(languageCode);
+    // TODO: Implement language change logic
+    console.log('Language changed to:', languageCode);
   };
 
   return (
@@ -128,15 +142,32 @@ const Header = () => {
               );
             })}
           </nav>
-          <button className='text-[26px] text-white font-nerko font-normal text-stroke hover:opacity-50 active:scale-[90%] relative' onClick={handleConnectWallet}>
-            <div className='absolute top-1/2 -translate-y-1/2 text-center w-full '>
-              <StrokeText
-                className='text-[26px] text-stroke-[0.125em] font-nerko text-black leading-[72%] font-normal'
-                text={address && isConnected ? shortenAddress(address) : 'Connect Wallet'}
-              />
-            </div>
-            <ButtonBg />
-          </button>
+
+          {/* Language Selector */}
+          <LanguageSelector
+            selectedLanguage={selectedLanguage}
+            onLanguageChange={handleLanguageChange}
+            variant="desktop"
+            className="mr-6"
+          />
+          {
+            pathname !== '/stake' &&
+            <button className='text-[26px] text-white font-nerko font-normal text-stroke hover:opacity-50 active:scale-[90%] relative' onClick={handleConnectWallet}>
+              <div className='absolute top-1/2 -translate-y-1/2 text-center w-full '>
+                <StrokeText
+                  className='text-[26px] text-stroke-[0.125em] font-nerko text-black leading-[72%] font-normal'
+                  text={address && isConnected ? shortenAddress(address) : 'Connect Wallet'}
+                />
+              </div>
+              <ButtonBg />
+            </button>
+          }
+          {
+            pathname == '/stake' &&
+            <button className='w-[222px] h-[88px] bg-[url("/images/green-button.webp")] bg-cover bg-no-repeat text-[26px] text-white font-nerko font-normal text-stroke hover:opacity-50 active:scale-[90%]' onClick={handleConnectWallet}>
+              Buy Now
+            </button>
+          }
         </div>
 
         {/* Mobile Menu Toggle Button */}
@@ -215,7 +246,7 @@ const Header = () => {
         >
           <nav className='flex flex-col items-center gap-4 py-10'>
             {HEADER_LINKS.map(({ href, title }, i) => {
-              const isActive = pathname === href;
+              const isActive = pathname === href && false;
               return (
                 <Link
                   key={i}
@@ -249,11 +280,28 @@ const Header = () => {
                 </Link>
               );
             })}
-            <button className='w-[222px] h-[88px] bg-[url("/images/pink-button.webp")] bg-cover bg-no-repeat text-[26px] text-white font-nerko font-normal text-stroke hover:opacity-50 active:scale-[90%]' onClick={handleConnectWallet}>
-              {address && isConnected
-                ? shortenAddress(address)
-                : "Connect Wallet"}
-            </button>
+
+            {/* Mobile Language Selector */}
+            <LanguageSelector
+              selectedLanguage={selectedLanguage}
+              onLanguageChange={handleLanguageChange}
+              variant="mobile"
+              className="w-full max-w-[120px]"
+            />
+            {
+              pathname != '/stake' &&
+              <button className='w-[222px] h-[88px] bg-[url("/images/pink-button.webp")] bg-cover bg-no-repeat text-[26px] text-white font-nerko font-normal text-stroke hover:opacity-50 active:scale-[90%]' onClick={handleConnectWallet}>
+                {address && isConnected
+                  ? shortenAddress(address)
+                  : "Connect Wallet"}
+              </button>
+            }
+            {
+              pathname == '/stake' &&
+              <button className='w-[222px] h-[88px] bg-[url("/images/green-button.webp")] bg-cover bg-no-repeat text-[26px] text-white font-nerko font-normal text-stroke hover:opacity-50 active:scale-[90%]' onClick={handleConnectWallet}>
+                Buy Now
+              </button>
+            }
           </nav>
         </div>
 
