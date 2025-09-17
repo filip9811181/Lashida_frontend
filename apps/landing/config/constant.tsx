@@ -1,0 +1,1 @@
+export const ETH_RPC = 'https://eth-mainnet.g.alchemy.com/v2/l49JR9RbfkUTXXnrsco5o'
