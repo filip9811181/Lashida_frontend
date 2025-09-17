@@ -1,22 +1,26 @@
 export const HEADER_LINKS = [
   {
-    href: '#home',
+    href: '/#home',
     title: 'Home',
   },
   {
-    href: '#how-to-buy',
+    href: '/#how-to-buy',
     title: 'How to buy',
   },
   {
-    href: '#whitepaper',
+    href: '/#whitepaper',
     title: 'Whitepaper',
   },
   {
-    href: '#audit', // if you have an audit section, add <div id="audit">
+    href: '/#audit', // if you have an audit section, add <div id="audit">
     title: 'Audit',
   },
   {
-    href: '#faq',
+    href: '/stake',
+    title: 'Stake',
+  },
+  {
+    href: '/#faq',
     title: 'FAQs',
   },
 ];

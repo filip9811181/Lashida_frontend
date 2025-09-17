@@ -54,8 +54,13 @@ const Header = () => {
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     href: string
   ) => {
+    if (href === '/stake' || pathname != '/') {
+      window.location.href = href;
+      return;
+    }
+
     e.preventDefault();
-    const targetId = href.replace('#', '');
+    const targetId = href.replace('/#', '');
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
