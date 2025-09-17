@@ -63,7 +63,7 @@ export default function StakePage() {
             </p>
           </div>
         </div>
-        <div className='relative mt-[16px]'>
+        <div className='relative mt-[16px] mb-[160px]'>
           <div className='flex flex-col 2xl:flex-row gap-[32px] lg:items-center flex-wrap'>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-[32px] mt-[16px] place-items-center">
               <StokeForm />
@@ -77,6 +77,70 @@ export default function StakePage() {
           </div>
         </div>
       </div>
-    </div>
+
+      <Image
+        className='lg:block hidden absolute left-[-72px] bottom-[0px] w-[352px] h-[327px]'
+        src={'/images/animated-hero-shiba-compressed.gif'}
+        alt=''
+        width={0}
+        height={0}
+        loading='lazy'
+      />
+
+      <Image
+        className='lg:block hidden absolute left-[136px] bottom-[0px] w-[188px] h-[177px]'
+        src={'/images/castle-hero.webp'}
+        alt=''
+        width={0}
+        height={0}
+        loading='lazy'
+      />
+      <div className='lg:block hidden  absolute lg:flex justify-center items-end bottom-[0px] left-0 right-0 z-[20]'>
+        <Image
+          className='w-[284px] h-[284px] scale-x-[-1]'
+          src={'/images/about-animation-1.gif'}
+          alt=''
+          width={0}
+          height={0}
+          loading='lazy'
+        />
+
+        <Image
+          className='w-[79px] h-[78px] mb-[16px] ml-[-60px]'
+          src={'/images/stake//ball.png'}
+          alt=''
+          width={0}
+          height={0}
+          loading='lazy'
+        />
+      </div>
+
+      <Image
+        className='lg:block hidden absolute right-[20px] bottom-[0px] w-[429px] h-[509px] z-[20]'
+        src={'/images/about-animation-2.gif'}
+        alt=''
+        width={0}
+        height={0}
+        loading='lazy'
+      />
+
+      <Image
+        className='lg:block hidden absolute w-[61px] h-[82px] bottom-[40px] right-[51px]'
+        src={'/images/stake/shroom3.png'}
+        alt=''
+        width={0}
+        height={0}
+        loading='lazy'
+      />
+
+      <Image
+        className='lg:block hidden absolute w-[61px] h-[82px] bottom-[40px] right-[401px] rotate-[-20deg]'
+        src={'/images/stake/shroom3.png'}
+        alt=''
+        width={0}
+        height={0}
+        loading='lazy'
+      />
+    </div >
   );
 }

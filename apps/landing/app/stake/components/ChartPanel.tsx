@@ -13,12 +13,12 @@ export const ChartPanel = () => {
         borderImage="url('/images/stake/chart_panel.png')"
         borderImageSlice={80}
         bgColor='bg-[#AC6249]'
-        wrapperClassName='w-fit w-full z-10 '>
-        <div className='w-full border-[4px] border-[#000000] relative rounded-[16px] bg-[#F5DEB6]'>
+        wrapperClassName='w-fit w-full z-10 relative'>
+        <div className='w-full border-[4px] border-[#000000] rounded-[16px] bg-[#F5DEB6]'>
           <div className='ml-[4px] mt-[4px]'>
             <Circle />
           </div>
-          <div className='flex flex-col-reverse lg:flex-col relative px-[16px] mt-[2px]'>
+          <div className='flex flex-col-reverse lg:flex-col px-[16px] mt-[2px]'>
             <div className='text-right lg:text-center'>
               <div
                 className='bg-[#AC6249] px-[8px] py-[4px] rounded-[16px] h-[32px] inline-block'
