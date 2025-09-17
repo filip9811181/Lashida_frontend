@@ -67,6 +67,15 @@ body {
   box-shadow: -4.51px 5.41px 0px 0px #000000;
 }
 
+.text_stroke_white {
+  -webkit-text-stroke: 2.25px white;
+  text-shadow:
+    0px 0 black,
+    -2px 0 black,
+    -2px 2px black,
+    0 2px black;
+}
+
 /* 
 .a {
   color: black;
